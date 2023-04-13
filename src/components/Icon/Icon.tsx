@@ -4,17 +4,23 @@
  * interested, but otherwise you can rely on our docs to learn its
  * API / which props it takes.
  */
-import React from 'react';
-import styled from 'styled-components';
-import { Search, AtSign, ChevronDown } from 'react-feather';
+import { CSSProperties } from "react";
+import { AtSign, ChevronDown, Search } from "react-feather";
+import styled from "styled-components";
 
 const icons = {
   search: Search,
-  'at-sign': AtSign,
-  'chevron-down': ChevronDown,
+  "at-sign": AtSign,
+  "chevron-down": ChevronDown,
 };
 
-const Icon = ({ id, size, strokeWidth = 1, ...delegated }) => {
+export interface IconProps {
+  id: keyof typeof icons;
+  size: number;
+  strokeWidth?: number;
+}
+
+const Icon = ({ id, size, strokeWidth = 1, ...delegated }: IconProps) => {
   const Component = icons[id];
 
   if (!Component) {
@@ -23,10 +29,12 @@ const Icon = ({ id, size, strokeWidth = 1, ...delegated }) => {
 
   return (
     <Wrapper
-      style={{
-        '--size': size + 'px',
-        '--stroke-width': strokeWidth + 'px',
-      }}
+      style={
+        {
+          "--size": `${size}px"`,
+          "--stroke-width": `${strokeWidth}`,
+        } as CSSProperties
+      }
       {...delegated}
     >
       <Component color="currentColor" size={size} />

@@ -1,19 +1,20 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
-import Select from './Select';
+import { useState } from "react";
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import Select from "./Select";
 
 <Meta title="Select" component={Select} />
 
 # Select
 
 export const ManagedSelect = () => {
-  const [value, setValue] = React.useState('newest');
+  const [value, setValue] = useState("newest");
   return (
     <>
       <label
         htmlFor="filter-by"
         style={{
-          display: 'block',
-          marginBottom: '0.5em',
+          display: "block",
+          marginBottom: "0.5em",
         }}
       >
         Filter by:
