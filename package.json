@@ -17,9 +17,11 @@
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
+    "@storybook/addon-controls": "^7.0.4",
     "@storybook/addon-essentials": "^7.0.4",
     "@storybook/addon-interactions": "^7.0.4",
     "@storybook/addon-links": "^7.0.4",
+    "@storybook/addon-styling": "^1.0.0",
     "@storybook/blocks": "^7.0.4",
     "@storybook/react": "^7.0.4",
     "@storybook/react-vite": "^7.0.4",
