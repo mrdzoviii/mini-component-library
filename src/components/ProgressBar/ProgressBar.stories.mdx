@@ -1,5 +1,5 @@
-import { Meta, Story } from '@storybook/addon-docs/blocks';
-import ProgressBar from './ProgressBar';
+import { Meta, Story } from "@storybook/addon-docs/blocks";
+import ProgressBar from "./ProgressBar";
 
 <Meta
   title="ProgressBar"
@@ -7,24 +7,55 @@ import ProgressBar from './ProgressBar';
   argTypes={{
     value: {
       control: {
-        type: 'number',
+        type: "number",
         min: 0,
         max: 100,
       },
     },
     size: {
-      control: {
-        type: 'select',
-        options: ['small', 'medium', 'large'],
-      },
+      control: "select",
+      options: ["small", "medium", "large"],
     },
   }}
 />
 
 export const Template = (args) => <ProgressBar {...args} />;
+export const Default = Template.bind({});
+export const Small = Template.bind({ size: "small", value: 50 });
+export const Large = Template.bind({ size: "large", value: 70 });
+export const Rounded = Template.bind({ value: 99.4 });
 
-# ProgressBar
+### ProgressBar
 
-<Story name="Default" args={{ value: 50, size: 'medium' }}>
+The figma document mentions that this component should be "accessible". You can learn how to build a semantically-valid, accessible progress-bar component by reading this doc: [https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_progressbar_role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Techniques/Using_the_progressbar_role)
+This component uses a **box shadow**. We haven't seen this property yet! For now, you can achieve this effect by copying the following CSS declaration into your component:
+
+```css
+box-shadow: inset 0px 2px 4px ${COLORS.transparentGray35};
+```
+
+We'll learn much more about the `box-shadow` property in future modules =)
+
+### Default
+
+<Story name="Default" args={{ value: 50, size: "medium" }}>
+  {Template.bind({})}
+</Story>
+
+### Small
+
+<Story name="Small" args={{ value: 30, size: "small" }}>
+  {Template.bind({})}
+</Story>
+
+### Large
+
+<Story name="Large" args={{ value: 70, size: "large" }}>
+  {Template.bind({})}
+</Story>
+
+### Rounded as needed
+
+<Story name="Rounded as needed" args={{ value: 99.4, size: "medium" }}>
   {Template.bind({})}
 </Story>

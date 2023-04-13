@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 
 interface VisuallyHiddenProps {
-  children: React.ReactNode;
+  children: React.ReactNode | React.ReactNode[];
 }
 
 const VisuallyHidden = ({ children, ...delegated }: VisuallyHiddenProps) => {
@@ -31,7 +31,7 @@ const VisuallyHidden = ({ children, ...delegated }: VisuallyHiddenProps) => {
   }, []);
 
   if (forceShow) {
-    return children;
+    return <>{children}</>;
   }
 
   return <Wrapper {...delegated}>{children}</Wrapper>;
