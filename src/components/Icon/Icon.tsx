@@ -31,7 +31,7 @@ const Icon = ({ id, size, strokeWidth = 1, ...delegated }: IconProps) => {
     <Wrapper
       style={
         {
-          "--size": `${size}px"`,
+          "--size": `${size}px`,
           "--stroke-width": `${strokeWidth}`,
         } as CSSProperties
       }
